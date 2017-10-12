@@ -1,15 +1,17 @@
+const acceptsHtml = require('./lib/accepts-html');
 const cacheControlImmutable = require('./lib/cache-control-immutable');
 const express = require('express');
 const fs = require('fs');
 const helmet = require('helmet');
+const hasHtmlResponse = require('./lib/has-html-response');
 const http = require('http');
 const http2 = require('http2');
 const minifyHtml = require('./lib/minify-html');
 const nunjucks = require('nunjucks');
 const path = require('path');
-const resPushAssets = require('./lib/res-push-assets');
 const revConfig = require('./lib/rev-config');
 const revUrl = require('./lib/rev-url');
+const serverPushAssets = require('./lib/server-push-assets');
 const shrinkRay = require('shrink-ray');
 const spdy = require('spdy');
 const timings = require('./lib/server-timings');
@@ -52,8 +54,8 @@ app.use('*/index.html', (req, res) => res.redirect(301, `${path.dirname(req.orig
  * - Serve (revisioned) files from `cacheDir` when available.
  */
 app.set('etag', true);
-app.use(revConfig.pattern, cacheControlImmutable);
-app.use(usePreCompressed(path.join(__dirname, config.cacheDir)));
+app.use(revConfig.pattern, cacheControlImmutable());
+app.get('*', acceptsHtml(false), usePreCompressed(path.join(__dirname, config.cacheDir)));
 app.use(shrinkRay());
 app.use(express.static(path.join(__dirname, config.cacheDir), { index: false, lastModified: false }));
 
@@ -81,42 +83,28 @@ const renderer = nunjucks.configure(config.baseDir, {
 renderer.addGlobal('revUrl', revUrl);
 
 app.use(timings.start('Render'));
-app.get('*', (req, res, next) => {
-    const resTimings = timings.inRes(res);
+app.get('*', acceptsHtml(), (req, res, next) => {
     const filename = path.join(req.path, 'index.html');
-    console.log(`Page request: ${config.baseDir}${filename}`);
-
+    console.log(`Page request: ${filename}`);
     fs.stat(`${config.baseDir}${filename}`, (err, stats) => {
         if (err || !stats.isFile()) {
+            return next();
+        } 
+        res.render(`./${filename}`, {}, (err, html) => {
+            if (err) {
+                return res.status(500).send('Internal Server Error');
+            }
+            res.locals.html = html;
             next();
-        } else {
-            res.render(`./${filename}`, {}, (err, html) => {
-                resTimings.end('Render')
-                if (err) {
-                    res.status(500).send('Internal Server Error')
-                }
-                // const pushStream = res.push(url, { request: { accept: '*/*' }, response: { 'content-type': 'text/css' } });
-                // pushStream.end('body { background: red !important; }')
-                resPushAssets(res, html);
-
-                resTimings.start('Minify HTML');
-                const minifiedHtml = minifyHtml(html);
-                resTimings.end('Minify HTML');
-
-                res.send(minifiedHtml);
-            });
-        }
+        });
     });
 });
+app.use(timings.end('Render'));
 
-app.get('*', (req, res, next) => {
-    if (req.headers['accept'].includes('text/html')) {
-        res.status(404).render('./404.html');
-        timings.endNow(res, 'Render');
-    } else {
-        next();
-    }
-});
+app.get('*', hasHtmlResponse(), minifyHtml());
+app.get('*', hasHtmlResponse(), serverPushAssets());
+app.get('*', hasHtmlResponse(), (req, res) => res.send(res.locals.html));
+app.get('*', acceptsHtml(), (req, res) => res.status(404).render('./404.html'));
 
 /**
  * Server app over HTTP1, HTTP2 and SPDY/H2
