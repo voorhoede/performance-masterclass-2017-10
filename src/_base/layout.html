@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% include './app-meta.html' %}
+    {#
+    <link href="{{ revUrl('/dist/css/fonts.css') }}" rel="stylesheet">
+    <link href="{{ revUrl('/dist/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{ revUrl('/assets/css/src/docs.css') }}" rel="stylesheet">
+    #}
+    <link href="{{ revUrl('/index.css') }}" rel="stylesheet">
+
+    {% block head_extra %}{% endblock %}
+</head>
+
+<body {% block body_attributes %}{% endblock %}>
+
+    {% block body %}
+        {% include './app-header.html' %}
+        {% block content %}
+        {# extend this layout and insert content into this block #}
+        {% endblock %}
+        {% include './app-footer.html' %}
+    {% endblock %}
+
+    {#
+    <script src="{{ revUrl('/assets/js/vendor/jquery.min.js') }}"></script>
+    <script src="{{ revUrl('/dist/js/bootstrap.js') }}"></script>
+    <script src="{{ revUrl('/assets/js/docs.min.js') }}"></script>
+    <script src="{{ revUrl('/assets/js/ie10-viewport-bug-workaround.js') }}"></script>
+    #}
+    <script src="{{ revUrl('/index.js') }}"></script>
+    {% block scripts_extra %}{% endblock %}
+</body>
+</html>
