@@ -1,0 +1,119 @@
+{% extends "_base/layout.html" %}
+
+{%- block body_attributes %}class="bs-docs-home"{% endblock -%}
+
+{% block content %}
+<main class="bs-docs-masthead" id="content" tabindex="-1">
+    <div class="container">
+        <span class="bs-docs-booticon bs-docs-booticon-lg bs-docs-booticon-outline">B</span>
+        <p class="lead">Bootstrap is the most popular HTML, CSS, and JS framework for developing responsive, mobile first projects on the web.</p>
+        <p class="lead"><a class="btn btn-outline-inverse btn-lg" href="getting-started#download" onclick='ga("send","event","Jumbotron actions","Download","Download 3.3.7")'>Download Bootstrap</a></p>
+        <p class="version">Currently v3.3.7</p>
+    </div>
+</main>
+<div class="bs-docs-featurette">
+    <div class="container">
+        <h2 class="bs-docs-featurette-title">Designed for everyone, everywhere.</h2>
+        <p class="lead">Bootstrap makes front-end web development faster and easier. It's made for folks of all skill levels, devices of all shapes, and projects of all sizes.</p>
+        <hr class="half-rule">
+        <div class="row">
+            <div class="col-sm-4">
+                <img alt="Sass and Less support" class="img-responsive" src="{{ revUrl('/assets/img/sass-less.png') }}">
+                <h3>Preprocessors</h3>
+                <p>Bootstrap ships with vanilla CSS, but its source code utilizes the two most popular CSS preprocessors, <a href="../css/#less">Less</a> and <a href="../css/#sass">Sass</a>. Quickly get started with precompiled CSS or build on the source.</p>
+            </div>
+            <div class="col-sm-4">
+                <img alt="Responsive across devices" class="img-responsive" src="{{ revUrl('/assets/img/devices.png') }}">
+                <h3>One framework, every device.</h3>
+                <p>Bootstrap easily and efficiently scales your websites and applications with a single code base, from phones to tablets to desktops with CSS media queries.</p>
+            </div>
+            <div class="col-sm-4">
+                <img alt="Components" class="img-responsive" src="{{ revUrl('/assets/img/components.png') }}">
+                <h3>Full of features</h3>
+                <p>With Bootstrap, you get extensive and beautiful documentation for common HTML elements, dozens of custom HTML and CSS components, and awesome jQuery plugins.</p>
+            </div>
+        </div>
+        <hr class="half-rule">
+        <p class="lead">Bootstrap is open source. It's hosted, developed, and maintained on GitHub.</p><a class="btn btn-outline btn-lg" href="https://github.com/twbs/bootstrap">View the GitHub project</a>
+    </div>
+</div>
+<div class="bs-docs-featurette">
+    <div class="container">
+        <h2 class="bs-docs-featurette-title">Built with Bootstrap.</h2>
+        <p class="lead">Millions of amazing sites across the web are being built with Bootstrap. Get started on your own with our growing <a href="../getting-started/#examples">collection of examples</a> or by exploring some of our favorites.</p>
+        <hr class="half-rule">
+        <div class="row bs-docs-featured-sites">
+            <div class="col-xs-6 col-sm-3">
+                <a href="http://expo.getbootstrap.com/2014/10/29/lyft/" target="_blank" title="Lyft">
+                    <picture>
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-lyft-290x218.webp') }}"
+                                media="(min-width:999px)">
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-lyft-186x139.webp') }}"
+                                media="(min-width:768px) and (max-width:999px)">
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-lyft-374x281.webp') }}">
+                        <source srcset="{{ revUrl('/assets/img/expo-lyft-290x218.jpg') }}"
+                                media="(min-width:999px)">
+                        <source srcset="{{ revUrl('/assets/img/expo-lyft-186x139.jpg') }}"
+                                media="(min-width:768px) and (max-width:999px)">
+                        <source srcset="{{ revUrl('/assets/img/expo-lyft-374x281.jpg') }}">
+                        <img alt="Lyft" src="{{ revUrl('/assets/img/expo-lyft-374x280.jpg') }}" class="img-responsive">
+                    </picture>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <a href="http://expo.getbootstrap.com/2014/09/30/vogue/" target="_blank" title="Vogue">
+                    <picture>
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-vogue-290x218.webp') }}"
+                                media="(min-width:999px)">
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-vogue-186x139.webp') }}"
+                                media="(min-width:768px) and (max-width:999px)">
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-vogue-374x281.webp') }}">
+                        <source srcset="{{ revUrl('/assets/img/expo-vogue-290x218.jpg') }}"
+                                media="(min-width:999px)">
+                        <source srcset="{{ revUrl('/assets/img/expo-vogue-186x139.jpg') }}"
+                                media="(min-width:768px) and (max-width:999px)">
+                        <source srcset="{{ revUrl('/assets/img/expo-vogue-374x281.jpg') }}">
+                        <img alt="Vogue" src="{{ revUrl('/assets/img/expo-vogue-374x280.jpg') }}" class="img-responsive">
+                    </picture>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <a href="http://expo.getbootstrap.com/2014/03/13/riot-design/" target="_blank" title="Riot Design">
+                    <picture>
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-riot-290x218.webp') }}"
+                                media="(min-width:999px)">
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-riot-186x139.webp') }}"
+                                media="(min-width:768px) and (max-width:999px)">
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-riot-374x281.webp') }}">
+                        <source srcset="{{ revUrl('/assets/img/expo-riot-290x218.jpg') }}"
+                                media="(min-width:999px)">
+                        <source srcset="{{ revUrl('/assets/img/expo-riot-186x139.jpg') }}"
+                                media="(min-width:768px) and (max-width:999px)">
+                        <source srcset="{{ revUrl('/assets/img/expo-riot-374x281.jpg') }}">
+                        <img alt="Riot design" src="{{ revUrl('/assets/img/expo-riot-374x280.jpg') }}" class="img-responsive">
+                    </picture>
+                </a>
+            </div>
+            <div class="col-xs-6 col-sm-3">
+                <a href="http://expo.getbootstrap.com/2014/02/12/newsweek/" target="_blank" title="Newsweek">
+                    <picture>
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-newsweek-290x218.webp') }}"
+                                media="(min-width:999px)">
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-newsweek-186x139.webp') }}"
+                                media="(min-width:768px) and (max-width:999px)">
+                        <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-newsweek-374x281.webp') }}">
+                        <source srcset="{{ revUrl('/assets/img/expo-newsweek-290x218.jpg') }}"
+                                media="(min-width:999px)">
+                        <source srcset="{{ revUrl('/assets/img/expo-newsweek-186x139.jpg') }}"
+                                media="(min-width:768px) and (max-width:999px)">
+                        <source srcset="{{ revUrl('/assets/img/expo-newsweek-374x281.jpg') }}">
+                        <img alt="Newsweek" src="{{ revUrl('/assets/img/expo-newsweek-374x280.jpg') }}" class="img-responsive">
+                    </picture>
+                </a>
+            </div>
+        </div>
+        <hr class="half-rule">
+        <p class="lead">We showcase dozens of inspiring projects built with Bootstrap on the Bootstrap Expo.</p><a class="btn btn-outline btn-lg" href="http://expo.getbootstrap.com">Explore the Expo</a>
+    </div>
+</div>
+{% endblock %}
