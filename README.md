@@ -30,7 +30,7 @@
     <source srcset="{{ revUrl('/assets/img/expo-lyft-186x140.jpg') }}" 
             media="(min-width:768px) and (max-width:999px)">
     <source srcset="{{ revUrl('/assets/img/expo-lyft-374x281.jpg') }}">
-    <img alt="Lyft" src="{{ revUrl('/assets/img/expo-lyft-374x280.jpg') }}" class="img-responsive">
+    <img alt="Lyft" src="{{ revUrl('/assets/img/expo-lyft-374x281.jpg') }}" class="img-responsive">
 </picture>
 ```
 
