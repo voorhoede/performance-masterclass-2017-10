@@ -1,13 +1,23 @@
 # Resource Hints
 
-## Solution
+## Bonus
 
-Improve the time to First Contentful Paint (FCP) of the homepage by adding Resource Hints to [src/_base/layout.html](src/_base/layout.html):
+Load the `/getting-started/` page using Resource Hints before the user hits the "Download Bootstrap" call-to-action button on the homepage in [src/_base/layout.html](src/_base/layout.html):
 
 ```twig
-<link rel="preload" href="{{ revUrl('/index.js') }}" as="script">
-<link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
-<link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-light.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="prefetch" href="/getting-started/" as="html">
+```
+
+The `Accept` headers are not properly set to `text/html` so [lib/accepts-html.js](lib/accepts-html.js) needs to check if the `purpose` is `prefetch` as a workaround.
+
+And in addition the `/getting-started/` page needs to be cacheable (otherwise it's prefetched for nothing):
+
+```js
+// in server.js
+app.get('/getting-started/', (req, res, next) => {
+    res.setHeader('Cache-Control', 'max-age=30');
+    next();
+})
 ```
 
 ## Exercise

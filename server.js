@@ -101,6 +101,11 @@ app.get('*', acceptsHtml(), (req, res, next) => {
 });
 app.use(timings.end('Render'));
 
+app.get('/getting-started/', (req, res, next) => {
+    res.setHeader('Cache-Control', 'max-age=30');
+    next();
+})
+
 app.get('*', hasHtmlResponse(), minifyHtml());
 app.get('*', hasHtmlResponse(), serverPushAssets());
 app.get('*', hasHtmlResponse(), (req, res) => res.send(res.locals.html));
