@@ -1,16 +1,18 @@
 # Resource Hints
 
-## Exercise
-
-* Improve the time to First Contentful Paint (FCP) of the homepage by adding Resource Hints to [src/_base/layout.html](src/_base/layout.html).
-* Bonus: if you're brave you can try and load the `/getting-started/` page using Resource Hints before the user hits the "Download Bootstrap" call-to-action button on the homepage.
-
-Note: paint timings are logged to the console (see [src/_base/paint-timings.js](src/_base/paint-timings.js)).
-
 ## Solution
 
-See [04-resource-hints-solution](https://github.com/voorhoede/performance-masterclass-2017-10/tree/04-resource-hints-solution)
-and [04-resource-hints-bonus](https://github.com/voorhoede/performance-masterclass-2017-10/tree/04-resource-hints-bonus).
+Improve the time to First Contentful Paint (FCP) of the homepage by adding Resource Hints to [src/_base/layout.html](src/_base/layout.html):
+
+```twig
+<link rel="preload" href="{{ revUrl('/index.js') }}" as="script">
+<link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-light.woff2') }}" as="font" type="font/woff2" crossorigin>
+```
+
+## Exercise
+
+See [04-resource-hints](https://github.com/voorhoede/performance-masterclass-2017-10/tree/04-resource-hints).
 
 ---
 
