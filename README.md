@@ -1,42 +1,16 @@
-## Solution
-
-* Use `<picture>` elements with a `<source>` for each available image.
-* Set a `media` query on each `<source>` to load the optimal size.
-* Set `[type="image/webp"]` on each `webp` `<source>`.
-
-
-**Before**:
-
-```html
-<img alt="Lyft" src="{{ revUrl('/assets/img/expo-lyft.min.jpg"') }}
-     srcset="{{ revUrl('/assets/img/expo-lyft-374x281.jpg 374w') }},
-             {{ revUrl('/assets/img/expo-lyft-290x218.jpg 290w') }},
-             {{ revUrl('/assets/img/expo-lyft-186x139.jpg 186w') }}"
-     sizes="(min-width: 768px) 25vw, 50vw"
-     class="img-responsive">
-```
-
-**After**:
-
-```html
-<picture>
-    <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-lyft-290x218.webp') }}" 
-            media="(min-width:999px)">
-    <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-lyft-186x140.webp') }}"
-            media="(min-width:768px) and (max-width:999px)">
-    <source type="image/webp" srcset="{{ revUrl('/assets/img/expo-lyft-374x281.webp') }}">
-    <source srcset="{{ revUrl('/assets/img/expo-lyft-290x218.jpg') }}"
-            media="(min-width:999px)">
-    <source srcset="{{ revUrl('/assets/img/expo-lyft-186x140.jpg') }}" 
-            media="(min-width:768px) and (max-width:999px)">
-    <source srcset="{{ revUrl('/assets/img/expo-lyft-374x281.jpg') }}">
-    <img alt="Lyft" src="{{ revUrl('/assets/img/expo-lyft-374x280.jpg') }}" class="img-responsive">
-</picture>
-```
+# Client Hints
 
 ## Exercise
 
-See [02-picture-solution](https://github.com/voorhoede/performance-masterclass-2017-10/tree/02-picture).
+Make the images on the homepage display the DPR, Width and Viewport-Width. Right now they all say `?`.
+
+* Enable Client Hints in the browser in [src/_base/layout.html](src/_base/layout.html).
+* Replace `<picture>` elements with `<img>` tags and use only `sizes` in [src/index.html](src/index.html).
+* Read Client Hints on the server in [lib/client-hints-images.js](lib/client-hints-images.js).
+
+## Solution
+
+See [03-client-hints-solution](https://github.com/voorhoede/performance-masterclass-2017-10/tree/03-client-hints-solution).
 
 ---
 

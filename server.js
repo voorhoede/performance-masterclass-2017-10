@@ -1,5 +1,6 @@
 const acceptsHtml = require('./lib/accepts-html');
 const cacheControlImmutable = require('./lib/cache-control-immutable');
+const clientHintsAsImage = require('./lib/client-hints-images');
 const express = require('express');
 const fs = require('fs');
 const helmet = require('helmet');
@@ -54,6 +55,7 @@ app.use('*/index.html', (req, res) => res.redirect(301, `${path.dirname(req.orig
  * - Serve (revisioned) files from `cacheDir` when available.
  */
 app.set('etag', true);
+app.get(/.*\.(jpg|png|webp)/, clientHintsAsImage());
 app.use(revConfig.pattern, cacheControlImmutable());
 app.get('*', acceptsHtml(false), usePreCompressed(path.join(__dirname, config.cacheDir)));
 app.use(shrinkRay());
