@@ -2,9 +2,9 @@
 <html lang="en">
 <head>
     {% include './app-meta.html' %}
-    <link rel="preload" href="{{ revUrl('/index.js') }}" as="script">
-    <link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
-    <link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-light.woff2') }}" as="font" type="font/woff2" crossorigin>
+    {# <link rel="preload" href="{{ revUrl('/index.js') }}" as="script"> #}
+    {# <link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-regular.woff2') }}" as="font" type="font/woff2" crossorigin> #}
+    {# <link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-light.woff2') }}" as="font" type="font/woff2" crossorigin> #}
     {#
     <link href="{{ revUrl('/dist/css/fonts.css') }}" rel="stylesheet">
     <link href="{{ revUrl('/dist/css/bootstrap.css') }}" rel="stylesheet">
@@ -33,6 +33,7 @@
     <script src="{{ revUrl('/assets/js/ie10-viewport-bug-workaround.js') }}"></script>
     #}
     <script src="{{ revUrl('/index.js') }}"></script>
+    <script>{% include './lazy-images.js' %}</script>
     {% block scripts_extra %}{% endblock %}
 </body>
 </html>
