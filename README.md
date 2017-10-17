@@ -1,13 +1,12 @@
-# Subset fonts
-
-## Solution
-
-* See subsetted Source Sans Pro font files - `sourcesanspro-**-subsetted.*` in [src/dist/fonts/](src/dist/fonts/).
-* See updated font declarations in [src/dist/css/fonts.css](src/dist/css/fonts.css).
+# Font display
 
 ## Exercise
 
-See [06-subset-fonts](https://github.com/voorhoede/performance-masterclass-2017-10/tree/06-subset-fonts).
+Use `font-display` to remove the Flash of Invisible Text (FOIT) in [src/dist/css/fonts.css](src/dist/css/fonts.css).
+
+## Solution
+
+See [07-font-display-solution](https://github.com/voorhoede/performance-masterclass-2017-10/tree/07-font-display-solution).
 
 ---
 
