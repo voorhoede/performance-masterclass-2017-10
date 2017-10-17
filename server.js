@@ -1,5 +1,6 @@
 const acceptsHtml = require('./lib/accepts-html');
 const cacheControlImmutable = require('./lib/cache-control-immutable');
+const cookieParser = require('cookie-parser');
 const express = require('express');
 const fs = require('fs');
 const helmet = require('helmet');
@@ -38,6 +39,7 @@ const serverSpdy = spdy.createServer(config.ssl, app);
 
 app.use(timings); // for debugging
 app.use(helmet()); // secure app
+app.use(cookieParser());
 
 /**
  * Pretty URLs:
@@ -89,8 +91,13 @@ app.get('*', acceptsHtml(), (req, res, next) => {
     fs.stat(`${config.baseDir}${filename}`, (err, stats) => {
         if (err || !stats.isFile()) {
             return next();
-        } 
-        res.render(`./${filename}`, {}, (err, html) => {
+        }
+
+        const data = {
+            fontsLoaded: req.cookies.fontsLoaded
+        };
+
+        res.render(`./${filename}`, data, (err, html) => {
             if (err) {
                 return res.status(500).send('Internal Server Error');
             }

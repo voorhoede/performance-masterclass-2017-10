@@ -1,5 +1,11 @@
 <!DOCTYPE html>
+
+{% if not fontsLoaded %}
 <html lang="en">
+{% else %}
+<html lang="en" class="fonts-loaded">
+{% endif %}
+
 <head>
     {% include './app-meta.html' %}
     {#
@@ -9,7 +15,10 @@
     #}
     <link href="{{ revUrl('/index.css') }}" rel="stylesheet">
 
+    {% if not fontsLoaded %}
+    <script data-cookie-helper>{% include "assets/js/vendor/cookie.min.js" %}</script>
     <script data-load-fonts>{% include './load-fonts.js' %}</script>
+    {% endif %}
 
     {% block head_extra %}{% endblock %}
 </head>

@@ -28,5 +28,6 @@
 
     function onFontsLoaded() {
         document.documentElement.className += ' fonts-loaded';
+        cookie('fontsLoaded', 'true');
     }
 }(document));

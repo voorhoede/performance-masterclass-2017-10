@@ -43,6 +43,7 @@
   "dependencies": {
     "body-parser": "1.15.2",
     "cheerio": "1.0.0-rc.2",
+    "cookie-parser": "1.4.3",
     "express": "5.0.0-alpha.6",
     "helmet": "3.8.2",
     "html-minifier": "3.5.5",
