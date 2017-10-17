@@ -14,7 +14,8 @@
     <link href="{{ revUrl('/assets/css/src/docs.css') }}" rel="stylesheet">
     #}
     <script defer src="{{ revUrl('/index.js') }}"></script>
-    <link href="{{ revUrl('/index.css') }}" rel="stylesheet">
+
+    {% include './load-css.html' %}
 
     {% if not fontsLoaded %}
     <script data-cookie-helper>{% include "assets/js/vendor/cookie.min.js" %}</script>

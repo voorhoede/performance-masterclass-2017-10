@@ -1,0 +1,8 @@
+{# todo:
+   * load `/index.css` async for JS user-agents using `loadCSS` (https://github.com/filamentgroup/loadCSS).
+   * load `/index.css` blocking for non-JS user-agents.
+#}
+<link rel="stylesheet" href="{{ revUrl('/index.css') }}">
+<script data-load-css>
+    {% include "assets/js/vendor/loadcss.min.js" %}
+</script>
