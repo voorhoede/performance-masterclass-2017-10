@@ -7,6 +7,7 @@ html {
     font-family: 'Glyphicons Halflings';
     src: url('/dist/fonts/glyphicons-halflings-regular.eot');
     src: url('/dist/fonts/glyphicons-halflings-regular.eot?#iefix') format('embedded-opentype'), url('/dist/fonts/glyphicons-halflings-regular.woff2') format('woff2'), url('/dist/fonts/glyphicons-halflings-regular.woff') format('woff'), url('/dist/fonts/glyphicons-halflings-regular.ttf') format('truetype'), url('/dist/fonts/glyphicons-halflings-regular.svg#glyphicons_halflingsregular') format('svg');
+    font-display: block;
 }
 
 @font-face {
@@ -15,6 +16,7 @@ html {
     url('/dist/fonts/sourcesanspro-it-subsetted.woff') format('woff');
     font-weight: 400;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -23,6 +25,7 @@ html {
     url('/dist/fonts/sourcesanspro-light-subsetted.woff') format('woff');
     font-weight: 300;
     font-style: normal;
+    font-display: swap;
 }
 
 @font-face {
@@ -31,6 +34,7 @@ html {
     url('/dist/fonts/sourcesanspro-lightit-subsetted.woff') format('woff');
     font-weight: 300;
     font-style: italic;
+    font-display: swap;
 }
 
 @font-face {
@@ -39,4 +43,5 @@ html {
     url('/dist/fonts/sourcesanspro-regular-subsetted.woff') format('woff');
     font-weight: 400;
     font-style: normal;
+    font-display: swap;
 }
