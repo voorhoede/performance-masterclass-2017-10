@@ -8,17 +8,21 @@
 
 <head>
     {% include './app-meta.html' %}
-    {#
-    <link href="{{ revUrl('/dist/css/fonts.css') }}" rel="stylesheet">
-    <link href="{{ revUrl('/dist/css/bootstrap.css') }}" rel="stylesheet">
-    <link href="{{ revUrl('/assets/css/src/docs.css') }}" rel="stylesheet">
-    #}
     <script defer src="{{ revUrl('/index.js') }}"></script>
 
-    {% include './load-css.html' %}
+    {% if not cssLoaded or not fontsLoaded %}
+    <script data-cookie-helper>
+        {% include "assets/js/vendor/cookie.min.js" %}
+    </script>
+    {% endif %}
+
+    {% if cssLoaded %}
+        <link href="{{ revUrl('/index.css') }}" rel="stylesheet">
+    {% else %}
+        {% include './load-css.html' %}
+    {% endif %}
 
     {% if not fontsLoaded %}
-    <script data-cookie-helper>{% include "assets/js/vendor/cookie.min.js" %}</script>
     <script data-load-fonts>{% include './load-fonts.js' %}</script>
     {% endif %}
 
