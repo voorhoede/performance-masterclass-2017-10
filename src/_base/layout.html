@@ -13,6 +13,7 @@
     <link href="{{ revUrl('/dist/css/bootstrap.css') }}" rel="stylesheet">
     <link href="{{ revUrl('/assets/css/src/docs.css') }}" rel="stylesheet">
     #}
+    <script defer src="{{ revUrl('/index.js') }}"></script>
     <link href="{{ revUrl('/index.css') }}" rel="stylesheet">
 
     {% if not fontsLoaded %}
@@ -39,7 +40,6 @@
     <script src="{{ revUrl('/assets/js/docs.min.js') }}"></script>
     <script src="{{ revUrl('/assets/js/ie10-viewport-bug-workaround.js') }}"></script>
     #}
-    <script src="{{ revUrl('/index.js') }}"></script>
     {% block scripts_extra %}{% endblock %}
 </body>
 </html>
