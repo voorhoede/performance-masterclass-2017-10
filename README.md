@@ -9,7 +9,7 @@
 ## Solution
 
 See [08-load-fonts-solution](https://github.com/voorhoede/performance-masterclass-2017-10/tree/08-load-fonts-solution)
-and [08-load-fonts-solution-bonus](https://github.com/voorhoede/performance-masterclass-2017-10/tree/08-load-fonts-solution-bonus).
+and [08-load-fonts-bonus](https://github.com/voorhoede/performance-masterclass-2017-10/tree/08-load-fonts-bonus).
 
 ---
 
