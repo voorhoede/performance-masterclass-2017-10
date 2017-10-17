@@ -14,9 +14,15 @@
     document.head.appendChild(script);
 
     function loadFonts() {
+        var font300 = new FontFaceObserver('source_sans_pro', { weight: 300 });
+        var font400 = new FontFaceObserver('source_sans_pro', { weight: 400 });
+        var font300italic = new FontFaceObserver('source_sans_pro', { weight: 300, style: 'italic' });
+        var font400italic = new FontFaceObserver('source_sans_pro', { weight: 400, style: 'italic' });
         return Promise.all([
-            // todo: load all 'source_sans_pro' font variants using FontFaceObserver
-            // https://github.com/bramstein/fontfaceobserver#how-to-use
+            font300.load(),
+            font400.load(),
+            font300italic.load(),
+            font400italic.load()
         ]);
     }
 

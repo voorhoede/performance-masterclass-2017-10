@@ -1,4 +1,8 @@
 html {
+    font-family: sans-serif;
+}
+
+html.fonts-loaded {
     font-family: 'source_sans_pro', sans-serif;
 }
 
