@@ -43,6 +43,16 @@ More (sub) tasks are available in [package.json > scripts](package.json).
 
 ## Exercises
 
-* ...
+* [01 - Use image `srcset`](https://github.com/voorhoede/performance-masterclass-2017-10/tree/01-srcset)
+* [02 - Use `picture` elements](https://github.com/voorhoede/performance-masterclass-2017-10/tree/02-picture)
+* [03 - Use Client Hints](https://github.com/voorhoede/performance-masterclass-2017-10/tree/03-client-hints)
+* [04 - Use Resource Hints](https://github.com/voorhoede/performance-masterclass-2017-10/tree/04-resource-hints)
+* [05 - Use Server Push](https://github.com/voorhoede/performance-masterclass-2017-10/tree/05-server-push)
+* [06 - Subset fonts](https://github.com/voorhoede/performance-masterclass-2017-10/tree/06-subset-fonts)
+* [07 - Use Font Display](https://github.com/voorhoede/performance-masterclass-2017-10/tree/07-font-display)
+* [08 - Load fonts async](https://github.com/voorhoede/performance-masterclass-2017-10/tree/08-load-fonts)
+* [09 - Load JS](https://github.com/voorhoede/performance-masterclass-2017-10/tree/09-load-js)
+* [10 - Load CSS async](https://github.com/voorhoede/performance-masterclass-2017-10/tree/10-load-css)
+* [11 - Use critical CSS](https://github.com/voorhoede/performance-masterclass-2017-10/tree/11-critical-css)
 
 Solutions are linked from each individual exercise.
