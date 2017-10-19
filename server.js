@@ -54,10 +54,10 @@ app.use('*/index.html', (req, res) => res.redirect(301, `${path.dirname(req.orig
  * - Serve (revisioned) files from `cacheDir` when available.
  */
 app.set('etag', true);
-app.use(revConfig.pattern, cacheControlImmutable());
-app.get('*', acceptsHtml(false), usePreCompressed(path.join(__dirname, config.cacheDir)));
-app.use(shrinkRay());
-app.use(express.static(path.join(__dirname, config.cacheDir), { index: false, lastModified: false }));
+//app.use(revConfig.pattern, cacheControlImmutable());
+//app.get('*', acceptsHtml(false), usePreCompressed(path.join(__dirname, config.cacheDir)));
+//app.use(shrinkRay());
+//app.use(express.static(path.join(__dirname, config.cacheDir), { index: false, lastModified: false }));
 
 /**
  * Static files:
@@ -80,7 +80,8 @@ const renderer = nunjucks.configure(config.baseDir, {
     express: app,
     watch: true
 });
-renderer.addGlobal('revUrl', revUrl);
+//renderer.addGlobal('revUrl', revUrl);
+renderer.addGlobal('revUrl', (url) => url);
 
 app.use(timings.start('Render'));
 app.get('*', acceptsHtml(), (req, res, next) => {
