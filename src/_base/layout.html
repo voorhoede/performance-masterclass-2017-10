@@ -8,6 +8,9 @@
 
 <head>
     {% include './app-meta.html' %}
+    <link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-regular.woff2') }}" as="font" type="font/woff2" crossorigin>
+    <link rel="preload" href="{{ revUrl('/dist/fonts/sourcesanspro-light.woff2') }}" as="font" type="font/woff2" crossorigin>
+
     <script defer src="{{ revUrl('/index.js') }}"></script>
 
     {% if not cssLoaded or not fontsLoaded %}
