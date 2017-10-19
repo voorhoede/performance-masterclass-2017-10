@@ -8,7 +8,7 @@
 
 Note: we disabled the `cssLoaded` cookie check in `server.js` in order to always simulate a first page visit.
 
-See [overview of all changes]().
+See [overview of all changes](https://github.com/voorhoede/performance-masterclass-2017-10/commit/4f2a4864bfc6421177584e1b0bffe16a49dba2fc).
 
 ## Exercise
 
@@ -17,4 +17,3 @@ See [11-critical-css](https://github.com/voorhoede/performance-masterclass-2017-
 ---
 
 Return to [Front-end Performance Masterclass](https://github.com/voorhoede/performance-masterclass-2017-10).
-
