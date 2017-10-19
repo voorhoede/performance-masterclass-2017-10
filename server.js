@@ -84,6 +84,14 @@ const renderer = nunjucks.configure(config.baseDir, {
 });
 renderer.addGlobal('revUrl', revUrl);
 
+app.get('*', acceptsHtml(), (req, res, next) => {
+    const filename = path.join(config.cacheDir, req.path, 'critical.css');
+    if (fs.existsSync(filename)) {
+        res.locals.criticalCss = fs.readFileSync(filename, 'utf8');
+    }
+    next();
+});
+
 app.use(timings.start('Render'));
 app.get('*', acceptsHtml(), (req, res, next) => {
     const filename = path.join(req.path, 'index.html');
@@ -95,7 +103,8 @@ app.get('*', acceptsHtml(), (req, res, next) => {
 
         const data = {
             fontsLoaded: req.cookies.fontsLoaded,
-            // cssLoaded: (req.cookies.cssLoaded === revUrl('/index.css')),
+            cssLoaded: (req.cookies.cssLoaded === revUrl('/index.css')),
+            criticalCss: res.locals.criticalCss
         };
 
         res.render(`./${filename}`, data, (err, html) => {

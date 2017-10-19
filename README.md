@@ -1,14 +1,12 @@
-# Use critical CSS
+# Use critical CSS - Bonus
 
 ## Solution
 
-* Expose local server to the world wide web using `npm run proxy:public`.
-* Generate critical CSS using the online [Critical Path CSS Generator](https://jonassebastianohlsson.com/criticalpathcssgenerator/) with your `ngrok` url. 
-* Include the generated CSS in [src/_base/load-css.html](src/_base/load-css.html).
+* Generate critical CSS for each page automatically based on a static version of each page. See [scripts/critical.js](scripts/critical.js) and `critical` script in [package.json](package.json).
+* Inline generated critical CSS for each page using `{{ criticalCss | safe }}` in [src/_base/load-css.html](src/_base/load-css.html).
 
-Note: we disabled the `cssLoaded` cookie check in `server.js` in order to always simulate a first page visit.
+See [overview of all changes]().
 
-See [overview of all changes](https://github.com/voorhoede/performance-masterclass-2017-10/commit/4f2a4864bfc6421177584e1b0bffe16a49dba2fc).
 
 ## Exercise
 
