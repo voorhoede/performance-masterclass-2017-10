@@ -25,6 +25,7 @@
   "devDependencies": {
     "chokidar-cli": "1.2.0",
     "critical": "0.9.1",
+    "fs-extra": "4.0.2",
     "gulp": "3.9.1",
     "gulp-autoprefixer": "4.0.0",
     "gulp-brotli": "1.2.0",
