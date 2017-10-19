@@ -95,7 +95,7 @@ app.get('*', acceptsHtml(), (req, res, next) => {
 
         const data = {
             fontsLoaded: req.cookies.fontsLoaded,
-            cssLoaded: (req.cookies.cssLoaded === revUrl('/index.css')),
+            // cssLoaded: (req.cookies.cssLoaded === revUrl('/index.css')),
         };
 
         res.render(`./${filename}`, data, (err, html) => {
