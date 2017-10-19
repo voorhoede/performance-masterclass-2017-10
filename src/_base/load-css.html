@@ -1,0 +1,14 @@
+<noscript><link rel="stylesheet" href="{{ revUrl('/index.css') }}"></noscript>
+<script data-load-css>
+    {% include "assets/js/vendor/loadcss.min.js" %}
+    {% include "assets/js/vendor/onloadcss.min.js" %}
+
+    (function(window) {
+        var cssUrl = '{{ revUrl("/index.css") }}';
+        var stylesheet = window.loadCSS(cssUrl);
+        window.onloadCSS( stylesheet, function() {
+            console.log( 'Stylesheet has loaded.' );
+            cookie('cssLoaded', cssUrl, 365);
+        });
+    }(window));
+</script>
